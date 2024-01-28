@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            window.onload = function() {
+                let btns = document.querySelectorAll('#choose');
+                for(let i = 0; i < btns.length; i++) {
+                    btns[i].addEventListener('click', function(event) {
+                        if (event.target.innerText == 'Leo Messi') {
+                            event.target.classList.add("correct-answer");
+                            console.log(document.getElementById('answer-status-correct'));
+                            document.getElementById('answer-status').innerHTML = 'Correct';
+                        } else {
+                            event.target.classList.add("wrong-answer");
+                            document.getElementById('answer-status').innerHTML = 'Wrong';
+                        }
+                    });
+                }
+                document.querySelector('#confirm').addEventListener('click', function(){
+                   let input = document.querySelector('input');
+                   if(input.value == 'Argentine' || input.value == 'argentine' ){
+                       input.style.backgroundColor = 'green';
+                       document.querySelector('#result').innerHTML = 'Correct!';
+                   } else {
+                       input.style.backgroundColor = 'red';
+                       document.querySelector('#result').innerHTML = 'Incorrect';
+                   }
+                });
+            };
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice</h2>
+                <hr>
+                <h3>Who is the best football player ?</h3>
+                <h4 id="answer-status"></h4>
+                <button id="choose">Leo Messi</button>
+                <button id="choose">Mo Salah</button>
+                <button id="choose">Yassin</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3> What is his original nationality? </h3>
+                <input type = 'text'></input>
+                <button id = "confirm">Confirm</button>
+                <p id = "result"></p>
+            </div>
+        </div>
+    </body>
+</html>

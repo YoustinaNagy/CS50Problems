@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h1> {{username}} </h1>
+
+    <table class="table table-striped">
+
+
+        <!-- tr mens row TBLE ROw -->
+        <tr>
+
+            <th>Stock name</th>
+            <th>Stock symbol</th>
+            <th>Shares</th>
+            <th>Current price</th>
+            <th>Total price</th>
+
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.stock_name}}</td>
+            <td>{{ record.symbol}}</td>
+            <td>{{record.shares}}</td>
+            <td>{{ record.current_price | usd}}</td>
+            <td> $ {{'%0.2f' % (record.current_price * record.shares)|float}} </td>
+
+
+        </tr>
+        {% endfor%}
+
+    </table>
+    <hr>
+
+    <h4> Cash: {{cash | usd}}</h4>
+    <h4> Total: $10000</h4>
+{% endblock %}

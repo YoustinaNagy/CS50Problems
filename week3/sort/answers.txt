@@ -1,0 +1,14 @@
+sort1 uses: Bubble Sort
+
+How do you know?:
+time it takes is greatly reduced when the data is sorted
+
+sort2 uses: Merge Sort
+
+How do you know?:
+takes the less time compared with sort3
+
+sort3 uses: Selection Sort
+
+How do you know?:
+takes more time compared with sort2

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1> {{username}} </h1>
+    <table class="table table-striped">
+
+
+        <!-- tr mens row TBLE ROw -->
+        <tr>
+
+            <th>Stock name</th>
+            <th>Stock symbol</th>
+            <th>Shares</th>
+            <th>Type</th>
+            <th>(purchase or sale) price</th>
+            <th>total price</th>
+            <th>Date</th>
+            <th>Time</th>
+
+
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.stock_name}}</td>
+            <td>{{ record.symbol}}</td>
+            <td>{{record.shares}}</td>
+            <td>{{ record.type}}</td>
+            <td> ${{ '%0.2f' % (record.total_price / record.shares)|float }}</td>
+            <td>{{ (record.total_price)| usd}}</td>
+            <td>{{ record.date }}</td>
+            <td>{{ record.transaction_date}}</td>
+
+        </tr>
+        {% endfor%}
+    </table>
+{% endblock %}

@@ -1,0 +1,2 @@
+ 1. I would take the combined AVG of a person's energy, valence, and danceability.
+ 2. Some song genere may be lowder and have more enegery, so we have to add weight to the song's genere. 
